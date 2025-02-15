@@ -1,6 +1,6 @@
 ﻿namespace lab9_attempt3
 {
-    internal class OutputData
+    internal static class OutputData
     {
         static bool CheckDiapasonBelonging(int number, int startNumber, int endNumber) => (startNumber <= number && number <= endNumber);
 
@@ -132,6 +132,56 @@
         {
             double dewPoint = Weather.GetDewPointStaticMethod(currentWeather, out double temperature, out int humidity);
             Console.WriteLine($"Точка росы при температуре {temperature}°C и влажности {humidity}% составляет {dewPoint}.");
+        }
+
+        public static void GetOppositeWeather(Weather currentWeather)
+        {
+            PrintObjectProperties(-currentWeather);
+        }
+
+        public static void CountIfHumidityIsHigher80(Weather currentWeather)
+        {
+            bool ifHumidityIsHigher80 = !currentWeather;
+            if ( ifHumidityIsHigher80 )
+            {
+                Console.WriteLine("Влажность воздуха выше 80%.");
+            }
+            else {
+                Console.WriteLine("Влажность воздуха ниже 80%.");
+            }
+        }
+
+        public static void PrintHumIndex(Weather currentWeather)
+        {
+            double humIndex = currentWeather;
+            currentWeather.ShowWeatherConditions(out double currentTemperature, out int currentHumidity, out int currentPressure);
+            Console.WriteLine($"При температуре {currentTemperature}°C, влажности {currentHumidity}%, значение humindex составляет {humIndex}.");
+        }
+
+        public static void CountIfPressureIsHigher760(Weather currentWeather)
+        {
+            bool IfPressureIsHigher760 = (bool)currentWeather;
+            if (IfPressureIsHigher760 )
+            {
+                Console.WriteLine("Атмосферное давление выше 760 мм рт. ст.");
+            }
+            else
+            {
+                Console.WriteLine("Атмосферное давление 760 мм рт. ст. или ниже.");
+            }
+        }
+
+        public static void PrintIfObjectsAreEqual(Weather currentWeather, object comparedObject)
+        {
+            bool areObjectsEqual = currentWeather.Equals(comparedObject);
+            if (areObjectsEqual)
+            {
+                Console.WriteLine("Объекты принадлежат классу Weather и обладают одинаковыми свойствами.");
+            }
+            else
+            {
+                Console.WriteLine("Хотя бы один объект не принадлежат классу Weather или объекты обладают разными свойствами.");
+            }
         }
 
         public static void PrintObjectsQuantity()

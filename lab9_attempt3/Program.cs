@@ -65,23 +65,29 @@
             Console.WriteLine();
 
             //Part 2
-            Weather weatherDay1 = -weatherMonday;
-            OutputData.PrintObjectProperties(weatherDay1);
+            Weather weatherDay1 = new Weather(4, 88, 760);
+            OutputData.GetOppositeWeather(weatherDay1); // применение операции нахождения отрицательного значения (-<object>)
+            Console.WriteLine();
 
-            Console.WriteLine($"Истинность утверждения, что влажность воздуха выше 80%: {!weatherDay1}");
+            OutputData.CountIfHumidityIsHigher80(weatherDay1); // применение операции инверсии (!<object>)
+            OutputData.CountIfHumidityIsHigher80(weatherThursday); // применение операции инверсии (!<object>)
+            Console.WriteLine();
 
-            double humIndexValue = weatherThursday;
-            Console.WriteLine(humIndexValue);
+            OutputData.PrintHumIndex(weatherDay1); // применение неявной операции приведения типов
+            Console.WriteLine();
 
-            Console.WriteLine($"Истинность утверждения о том, что атмосферное давление в понедельник выше нормы (760 мм рт. ст.): {(bool)weatherMonday}");
-            Console.WriteLine($"Истинность утверждения о том, что атмосферное давление во вторник выше нормы (760 мм рт. ст.): {(bool)weatherTuesday}");
+            OutputData.CountIfPressureIsHigher760(weatherDay1); // применение явной операции приведения типов
+            OutputData.CountIfPressureIsHigher760(weatherTuesday); // применение явной операции приведения типов
+            Console.WriteLine();
 
-            OutputData.PrintObjectProperties(weatherThursday - 5);
+            OutputData.PrintObjectProperties(weatherThursday - 5); // применение операции вычитания числа из экземпляра класса Weather
+            Console.WriteLine();
 
-            OutputData.PrintObjectProperties(weatherThursday * 1.5);
+            OutputData.PrintObjectProperties(weatherThursday * 1.5); // применение операции умножения экземпляра класса Weather на число
+            Console.WriteLine();
 
-            Console.WriteLine(weatherDay1.Equals(5));
-
+            OutputData.PrintIfObjectsAreEqual(weatherWednesday, weatherTuesday); // применение метода Equals
+            OutputData.PrintIfObjectsAreEqual(weatherDay1, 5); // применение метода Equals
             Console.WriteLine();
 
             //Part 3

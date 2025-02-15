@@ -6,6 +6,19 @@ namespace lab9_tests
     public sealed class Test1
     {
         [TestMethod]
+        public void TestGetObjectsQuantity()
+        {
+            //Arrange
+            int expectedObjectsQuantity = 2;
+            //Act
+            Weather currentWeather1 = new Weather(25.5, 45, 770);
+            Weather currentWeather2 = new Weather(25, 45, 770);
+            int actualObjectsQuantity = Weather.GetObjectsQuantity();
+            //Assert
+            Assert.AreEqual(expectedObjectsQuantity, actualObjectsQuantity);
+        }
+        
+        [TestMethod]
         public void TestConstructorAllParameters()
         {
             //Arrange
@@ -19,28 +32,28 @@ namespace lab9_tests
             Assert.AreEqual(expectedHumidity, currentWeather.Humidity);
             Assert.AreEqual(expectedPressure, currentWeather.Pressure);
         }
-
+        
         [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void TestConstructorAllParametersWithExeptionNegativeHumidity()
         {
             Weather currentWeather1 = new Weather(25.5, -45, 770);
         }
-
+        
         [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void TestConstructorAllParametersWithExeptionUnlimitedHumidity()
         {
             Weather currentWeather2 = new Weather(25.5, 101, 770);
         }
-
+        
         [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void TestConstructorAllParametersWithExeptionnegativePressure()
         {
             Weather currentWeather3 = new Weather(25.5, 0, -770);
         }
-
+        
         [TestMethod]
         public void TestConstructorTemperatureParameter()
         {
@@ -51,7 +64,7 @@ namespace lab9_tests
             //Assert
             Assert.AreEqual(expectedWeather, currentWeather);
         }
-
+        
         [TestMethod]
         public void TestConstructorAnotherObjectParameter()
         {
@@ -62,7 +75,7 @@ namespace lab9_tests
             //Assert
             Assert.AreEqual(expectedWeather, currentWeather);
         }
-
+        
         [TestMethod]
         public void TestConstructorNoParameters()
         {
@@ -73,7 +86,7 @@ namespace lab9_tests
             //Assert
             Assert.AreEqual(expectedWeather, currentWeather);
         }
-
+        
         [TestMethod]
         public void TestShowWeatherConditions()
         {
@@ -89,7 +102,7 @@ namespace lab9_tests
             Assert.AreEqual(expectedHumidity, actualHumidity);
             Assert.AreEqual(expectedPressure, actualPressure);
         }
-
+        
         [TestMethod]
         public void TestGetDewPointClassMethod()
         {
@@ -109,7 +122,7 @@ namespace lab9_tests
             Assert.AreEqual(expectedHumidity, actualHumidity);
             Assert.AreEqual(expectedDewPoint, actualdewPoint);
         }
-
+        
         [TestMethod]
         public void TestGetDewPointStaticMethod()
         {
@@ -129,20 +142,7 @@ namespace lab9_tests
             Assert.AreEqual(expectedHumidity, actualHumidity);
             Assert.AreEqual(expectedDewPoint, actualdewPoint);
         }
-
-        [TestMethod]
-        public void TestGetObjectsQuantity()
-        {
-            //Arrange
-            int expectedObjectsQuantity = 2;
-            //Act
-            Weather currentWeather1 = new Weather(25.5, 45, 770);
-            Weather currentWeather2 = new Weather(25, 45, 770);
-            int actualObjectsQuantity = Weather.GetObjectsQuantity();
-            //Assert
-            Assert.AreEqual(expectedObjectsQuantity, actualObjectsQuantity);
-        }
-
+        
         [TestMethod]
         public void TestOperatorNegative()
         {
