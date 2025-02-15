@@ -74,7 +74,7 @@
         /// <summary>
         /// вывод объектов коллекции в консоль
         /// </summary>
-        public void Show()
+        public void GetCollectionelements()
         {
             for (int i = 0; i < this.Length; i++)
             {
